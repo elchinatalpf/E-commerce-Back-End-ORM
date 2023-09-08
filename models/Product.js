@@ -32,7 +32,15 @@ Product.init(
       allowNull: false,
       defaultValue: 10,
       validate: {
-        
+        isNumeric: true
+      }
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+// model refers to the modelName in Category
+        model: 'category',
+        key: 'id'
       }
     }
   },
