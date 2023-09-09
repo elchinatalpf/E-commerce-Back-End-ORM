@@ -3,33 +3,66 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/', async (req, res) => {
 // find all categories, be sure to include its associated Products
+router.get('/', async (req, res) => {
 try {
-  const categoriesData = await Category.findAll({
-    include: [{ model: Product }]
+  const categoryData = await Category.findAll({
+    include: [{ model: Product }],
   });
-  res.status(200).json(categoriesData);
+  if (!categoryData) {
+    res.status(404).json({ message: 'Category not foudned', error: err.message});
+    return;
+  }
+  res.status(200).json(categoryData);
 } catch (err) {
   res.status(500).json(err);
 }
 });
 
-router.get('/:id', (req, res) => {
 // find one category by its `id` value, be sure to include its associated Products
-
+router.get('/:id', async (req, res) => {
+try {
+  const catId = await Category.findByPk(req.params.id, {
+    include: [{ model: Product }],
+  });
+  if (!catId) {
+    res.status(404).json({ message: 'Category ID not founded', error: err.message });
+  }
+  res.status(200).json(catId);
+} catch (err) {
+  res.status(500).json(err);
+}
 });
 
-router.post('/', (req, res) => {
-  // create a new category
+// create a new category
+router.post('/', async (req, res) => {
+  try {
+    const newCat = await Category.create({
+      category_name: req.body.category_name,
+    });
+    res.status(200).json(newCat);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-router.put('/:id', (req, res) => {
-  // update a category by its `id` value
+// update a category by its `id` value
+router.put('/:id', async (req, res) => {
+  try {
+    const updateValue = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(updateValue);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-router.delete('/:id', (req, res) => {
-  // delete a category by its `id` value
+// delete a category by its `id` value
+router.delete('/:id', async (req, res) => {
+  
 });
 
 module.exports = router;
