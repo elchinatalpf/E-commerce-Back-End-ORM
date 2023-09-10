@@ -22,9 +22,9 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id
       },
-      includes: [{ model: Product, through: ProductTag, as: "producTag_products" } ]
+      include: [{ model: Product, through: ProductTag, as: "productTag_products" } ]
     });
-    if (tagData) {
+    if (!tagData) {
       res.status(404).json({ message: "Tag ID not found!" });
     }
     res.status(200).json(tagData);
