@@ -1,16 +1,14 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
-// The `/api/categories` endpoint
-
-// find all categories, be sure to include its associated Products
+// The `/api/categories` endpoint, find all categories, be sure to include its associated Products
 router.get('/', async (req, res) => {
 try {
   const categoryData = await Category.findAll({
     include: [{ model: Product }],
   });
   if (!categoryData) {
-    res.status(404).json({ message: 'Category not foudned', error: err.message});
+    res.status(404).json({ message: 'Category not foud'});
     return;
   }
   res.status(200).json(categoryData);
@@ -26,7 +24,8 @@ try {
     include: [{ model: Product }],
   });
   if (!catId) {
-    res.status(404).json({ message: 'Category ID not founded', error: err.message });
+    res.status(404).json({ message: 'Category ID not founded' });
+    return;
   }
   res.status(200).json(catId);
 } catch (err) {
