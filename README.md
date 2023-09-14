@@ -29,6 +29,7 @@ clone the repository or download the zip file. Once you are in the right directo
 ***
 If you want to practice, debug or just break the code, you can use the command 'nodemon run' which runs the nodemon that updates the server as you work on it. This is, as long as the code is not broken.
 ***
+Also, do not forget to add the '.env' file and add there your database, user and your password. Then, in '.gitignore' add the '.env' file. Use the global variables in the sequilize connection.
 
 ## License
    [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit/)

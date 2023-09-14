@@ -56,11 +56,10 @@ router.put('/:id', async (req, res) => {
       res.status(404).json({ message: 'No id Tag was founded' });
       return;
     }
-    res.status(200).json(tagData);
+    res.status(200).json( { message: `Tag was updated!` });
   } catch (err) {
     res.status(500).json(err);
   }
-
 });
 
 // delete on tag by its `id` value
@@ -75,7 +74,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'ID not found and cannot be deleted' });
       return;
     }
-    res.status(200).json(tagData);
+    res.status(200).json({ message: `Tag was deleted!` });
   } catch (err) {
     res.status(500).json(err);
   }
