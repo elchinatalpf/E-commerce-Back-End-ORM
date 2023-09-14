@@ -27,6 +27,7 @@ try {
   });
   if (!productData) {
     res.status(404).json({ message: "Product ID not found!" });
+    return;
   }
   res.status(200).json(productData);
   } catch (err) {
@@ -74,7 +75,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id,
     },
   })
-    .then((product) => {
+  .then((product) => {
       if (req.body.tagIds && req.body.tagIds.length) {
         
         ProductTag.findAll({
@@ -89,6 +90,7 @@ router.put('/:id', (req, res) => {
               product_id: req.params.id,
               tag_id,
             };
+            
           });
 
             // figure out which ones to remove
