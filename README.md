@@ -4,7 +4,7 @@
 ## Description
 This application is built on a local back-end server that synchronizes with the Sequelize library and a MySQL database. This project is part of a coding bootcamp challenge from Kansas University. The objective is to create a simulation of an e-commerce platform where users can view, create, update, and delete products, tags, and categories.
 
-## Table of Content
+## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
@@ -14,7 +14,8 @@ This application is built on a local back-end server that synchronizes with the 
   * [Questions](#questions)
 
 ## Installation
-Just enter in the console command line npm install.
+To install the application, enter the following command in your console: 'npm install'.
+
 These are the dependencies:
 ```
 "dependencies": {
@@ -25,7 +26,7 @@ These are the dependencies:
   }
    ```
 ## Usage
-clone the repository or download the zip file. Once you are in the right directory on your CLI, run the 'npm install' command to install the dependencies. Then, log in in your mysql account with 'mysql -u root -p', run 'source db/schema.sql;' and quit/exit out. Then, run the command 'node seeds/index.js' to seed the database. Only then, run the command 'npm run start'.
+Clone the repository or download the zip file. Once you are in the right directory on your CLI, run the 'npm install' command to install the dependencies. Then, log into your MySQL account with 'mysql -u root -p', run 'source db/schema.sql;', and quit/exit. Then, run the command 'node seeds/index.js' to seed the database. Finally, run the command 'npm run start'.
 ***
 If you want to practice, debug or just break the code, you can use the command 'nodemon run' which runs the nodemon that updates the server as you work on it. This is, as long as the code is not broken.
 ***
@@ -41,8 +42,10 @@ Also, do not forget to add the '.env' file and add there your database, user and
 * https://expressjs.com/en/guide/routing.html
 
 ## Deployment
-Here is a video link of a walkthrough of the project.
+Here is a walkthrough video link of the project.
+* https://drive.google.com/file/d/1Nw_-kbY5yHzkk-z1_11YYr-fB1R9oK6x/view
+
 
 
 ## Questions
-Any question regarding the projec or contribution, contact me through my GitHub account.
+Any question regarding the project or contribution, contact me through my GitHub account.
